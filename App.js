@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, } from 'react-native';
 import * as Brightness from 'expo-brightness'; // Import da biblioteca Brightness
 import Slider from '@react-native-community/slider'; // Import da biblioteca Slider
-import { Animated } from "react-native-reanimated";
+import { MotiView, SafeAreaView } from 'moti';
 
 
 const App = () => {
@@ -19,7 +19,18 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+    <MotiView style={styles.container}
+    from={{
+      opacity: 0
+    }}
+    animate={{
+      opacity:1
+    }}
+    transition={{
+      type:'timing',
+      duration: 2000,
+    }}>
       <Text style={styles.texto}>Brilho: {parseInt(100*brilho)+'%'}</Text>
       <Slider style={styles.slider}
           minimumValue={0}
@@ -33,13 +44,15 @@ const App = () => {
             Brightness.setSystemBrightnessAsync(brilho);
           }}
       />
-    </View>
+    </MotiView>
+    </SafeAreaView>
   );
 };
 
 export default App;
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#A1C7E0',
