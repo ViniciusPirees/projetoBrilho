@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { eStyleSheet, Text, View} from 'react-native';
 import * as Brightness from 'expo-brightness'; // Import da biblioteca Brightness
 import Slider from '@react-native-community/slider'; // Import da biblioteca Slider
-import { TouchableWithoutFeedback } from 'react-native-web';
+
 
 const App = () => {
   const [brilho, setBrilho] = useState(0.50);
