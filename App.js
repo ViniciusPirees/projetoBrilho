@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import * as Brightness from 'expo-brightness'; // Import da biblioteca Brightness
 import Slider from '@react-native-community/slider'; // Import da biblioteca Slider
+import { Animated } from "react-native-reanimated";
 
 
 const App = () => {
+  
   const [brilho, setBrilho] = useState(0.50);
 
   useEffect(() => {
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#A1C7E0',
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   texto: {
     fontSize: 20,
