@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import * as Brightness from 'expo-brightness'; // Import da biblioteca Brightness
 import Slider from '@react-native-community/slider'; // Import da biblioteca Slider
-import { MotiView, SafeAreaView } from 'moti';
-
+import FadeInOut from 'react-native-fade-in-out';
 
 const App = () => {
-  
+  const [visivel, setVisivel] = useState(false);
+
+
   const [brilho, setBrilho] = useState(0.50);
 
   useEffect(() => {
@@ -17,21 +18,19 @@ const App = () => {
       }
     })();
   }, []);
-
+  
   return (
-    <SafeAreaView style={styles.container}>
-    <MotiView style={styles.container}
-    from={{
-      opacity: 0
-    }}
-    animate={{
-      opacity:1
-    }}
-    transition={{
-      type:'timing',
-      duration: 2000,
-    }}>
+    <View style={styles.container} >
+      <Text style={styles.texto}>
+      <FadeInOut visible={visivel} style={styles.texto}>
+        Aceso
+        </FadeInOut>
+        <FadeInOut visible={!visivel}>
+        Apagado
+        </FadeInOut>
+        </Text>
       <Text style={styles.texto}>Brilho: {parseInt(100*brilho)+'%'}</Text>
+      
       <Slider style={styles.slider}
           minimumValue={0}
           maximumValue={1}
@@ -42,10 +41,10 @@ const App = () => {
           onValueChange={(brilho) => {
             setBrilho(brilho);
             Brightness.setSystemBrightnessAsync(brilho);
+            setVisivel(brilho);
           }}
       />
-    </MotiView>
-    </SafeAreaView>
+    </View>
   );
 };
 

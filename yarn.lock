@@ -4577,6 +4577,11 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
+"react-native-fade-in-out@^1.0.6":
+  "integrity" "sha512-rZxUEmiu+otPreKdxlv3piJvGe8WZt5zMyvZw0YXVV2LZdvaj6yqZOySDdBWt8zsGb4tIUR6vOC035f8SOJirw=="
+  "resolved" "https://registry.npmjs.org/react-native-fade-in-out/-/react-native-fade-in-out-1.0.6.tgz"
+  "version" "1.0.6"
+
 "react-native-gesture-handler@*":
   "integrity" "sha512-ibcYWHMiDbioUcaAMuw3/Taz3mYn0fJz0q2KnGX1hWpLNz/x/E5/BzKB+T3ycwAm1dQEgPgHWpaZ8eqO/EVFlw=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.3.2.tgz"
